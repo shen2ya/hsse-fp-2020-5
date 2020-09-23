@@ -10,11 +10,6 @@
 	father(b,d).  % 3
 	father(b,e).  % 4
 	father(c,f).  % 5
-%	 a
-%   b c
-%  de  f
-%Y         X 
-%a c f d e g
 % указать в каком порядке и какие ответы генерируются вашими методами
 		
 	brother(X,Y) :- father(Z,X), father(Z,Y), X\=Y.
