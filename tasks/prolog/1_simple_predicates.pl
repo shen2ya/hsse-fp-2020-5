@@ -13,17 +13,17 @@ father(b,e).
 father(c,f).
 
 brother(X, Y) :-
-	father(Z, X),
-	father(Z, Y),
-	X \= Y.
+    father(Z, X),
+    father(Z, Y),
+    X \= Y.
 
 cousin(X, Y) :-
-	father(Grandad, Dad_1),
-	father(Grandad, Dad_2),
+    father(Grandad, Dad_1),
+    father(Grandad, Dad_2),
     father(Dad_1, X),
-	father(Dad_2, Y),
-	X \= Y,
-	Dad_1 \= Dad_2.
+    father(Dad_2, Y),
+    X \= Y,
+    Dad_1 \= Dad_2.
 
 grandson(X, Y) :-
     father(X, Z),
