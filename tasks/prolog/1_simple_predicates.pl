@@ -5,35 +5,35 @@
 % 3. grandson(X,Y)   -  определяющий является ли аргумент Х внуком аргумента Y
 % 4. descendent(X,Y) -  определяющий является ли аргумент X потомком аргумента Y
 % 5. используя в качестве исходных данных следующий граф отношений
-	father(a,b).  % 1                 
-	father(a,c).  % 2
-	father(b,d).  % 3
-	father(b,e).  % 4
-	father(c,f).  % 5
+father(a,b).  % 1                 
+father(a,c).  % 2
+father(b,d).  % 3
+father(b,e).  % 4
+father(c,f).  % 5
 
-    brother(X,Y) :-
-        father(A, X),
-        father(A, Y),
-        X \= Y.
+brother(X,Y) :-
+    father(A, X),
+    father(A, Y),
+    X \= Y.
 
-    cousin(X,Y) :-
-        father(A, X),
-        father(B, Y),
-        brother(A, B).
+cousin(X,Y) :-
+    father(A, X),
+    father(B, Y),
+    brother(A, B).
 
-    grandson(X,Y) :-
-        father(Y, A),
-        father(A, X).
+grandson(X,Y) :-
+    father(Y, A),
+    father(A, X).
 
-    descendent(X,Y) :-
-        father(Y,X).
-    descendent(X,Y) :-
-        father(A,X),
-        descendent(A,Y).
+descendent(X,Y) :-
+    father(Y,X).
+descendent(X,Y) :-
+    father(A,X),
+    descendent(A,Y).
 
 
 % указать в каком порядке и какие ответы генерируются вашими методами
-	?- brother(X,Y).
+?- brother(X,Y).
 %X = b,
 %Y = c ;
 %X = c,
@@ -45,7 +45,7 @@
 %false.
 
 
-	?- cousin(X,Y).
+?- cousin(X,Y).
 %X = d,
 %Y = f ;
 %X = e,
@@ -57,7 +57,7 @@
 %false.
 
 
-	?- grandson(X,Y).
+?- grandson(X,Y).
 %X = d,
 %Y = a ;
 %X = e,
@@ -67,7 +67,7 @@
 %false.
 
 
-	?- descendent(X,Y).
+?- descendent(X,Y).
 %X = b,
 %Y = a ;
 %X = c,
