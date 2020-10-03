@@ -5,11 +5,11 @@
 % 3. grandson(X,Y)   -  определяющий является ли аргумент Х внуком аргумента Y
 % 4. descendent(X,Y) -  определяющий является ли аргумент X потомком аргумента Y
 % 5. используя в качестве исходных данных следующий граф отношений
-	father(alan,benny).   % 1
-	father(alan,conny).   % 2
-	father(benny,david).  % 3
-	father(benny,ethan).  % 4
-	father(conny,fred).   % 5
+	father(a,b).  % 1
+	father(a,c).  % 2
+	father(b,d).  % 3
+	father(b,e).  % 4
+	father(c,f).  % 5
 
         brother(X,Y):-father(Z,Y),father(Z,X), X\=Y.
         cousin(X,Y):-father(I,J),father(I,Z),father(J,X),father(Z,Y),J\=Z,X\=Y.
