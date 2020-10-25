@@ -3,3 +3,21 @@
 % для построения дерева использовать следующие  нотации:
 % empty - пустое дерево 
 % instant(R, L, R) - бинарное дерево с корнем R и двумя поддеревьями L и R соотвественно (левое и правое)
+
+:- consult('3_quicksort.pl').
+
+balanced_tree(L,T):-
+    qsort(L,K),
+    build_tree(K,T).
+    
+build_tree([],empty).
+build_tree(L,instant(X,T1,T2)):-
+    div(L,A,[X|B]),
+    build_tree(A,T1),
+    build_tree(B,T2).
+    
+div(L,A,B):-
+    length(L,N),
+    H is N - N // 2,
+    length(B,H),
+    append(A,B,L).
